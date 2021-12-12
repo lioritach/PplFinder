@@ -25,7 +25,7 @@ const UserList = ({ users, isLoading }) => {
 
   useEffect(() => {
     filterByCountry(users, userNat.natData);
-  }, [userNat.natData]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("fav", JSON.stringify(favorites));

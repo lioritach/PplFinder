@@ -1,5 +1,5 @@
 {
-  "homepage": "http://lioritach.github.io/PplFinder",
+  "homepage": "https://lioritach.github.io/PplFinder",
   "name": "ppl-finder",
   "version": "1.0.7",
   "bin": "./bin/cli.js",
