@@ -5,20 +5,14 @@ export const UserList = styled.div`
   flex-direction: column;
 `;
 
-export const FavoriteMessage = styled.div`
-  margin: auto;
-  font-size: 15px;
-  border: 1px solid #fff;
-`;
-
 export const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 35px;
   width: 500px;
-  height: calc(100vh - 270px);
-  margin: auto;
-  margin-block-start: 30px;
+  height: calc(100vh - 170px);
+  margin-block-start: 80px;
+  margin-left: 20px;
   overflow-y: auto;
 `;
 
@@ -58,6 +52,6 @@ export const Filters = styled.div`
   display: flex;
   justify-content: center;
   & > * {
-    margin-inline-end: 1px;
+    margin-inline-end: 8px;
   }
 `;
