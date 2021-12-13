@@ -37,8 +37,6 @@ const UserList = ({ users, isLoading }) => {
     setHoveredUserId(index);
   };
 
-  console.log(userNat.natData === "initialValue");
-
   const handleMouseLeave = () => {
     setHoveredUserId();
   };
