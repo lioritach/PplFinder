@@ -26,7 +26,7 @@ const UserList = ({ users, isLoading }) => {
   const usersFavorite = favorites.map((name) => name.login.uuid);
 
   useEffect(() => {
-    filterByCountry(users, userNat.natData);
+    filterByCountry(users, getitem);
   }, [getitem]);
 
   useEffect(() => {
