@@ -33,9 +33,7 @@ const UserList = ({ users, isLoading }) => {
     localStorage.setItem("fav", JSON.stringify(favorites));
   }, [favorites]);
 
-  useEffect(() => {
-    dispatch(getNat({ natData: "initialValue" }));
-  }, []);
+  let a = "l";
 
   const handleMouseEnter = (index) => {
     setHoveredUserId(index);
@@ -87,7 +85,7 @@ const UserList = ({ users, isLoading }) => {
       </S.FavoriteMessage>
       <S.List>
         {/* show all users when checkbox's is unchecked */}
-        {userNat.natData === "initialValue"
+        {a === "l"
           ? users.map((user, index) => {
               return (
                 <S.User
