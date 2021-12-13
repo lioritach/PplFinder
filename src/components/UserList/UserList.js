@@ -19,12 +19,9 @@ const UserList = ({ users, isLoading }) => {
   );
   const [favoriteMessage, setFavoriteMessage] = useState("");
   const userNat = useSelector(selectNat);
-  const test = userNat.natData === null ? true : false;
 
   const countrys = Array.from(new Set(users.map((userCountry) => userCountry?.nat)));
   const usersFavorite = favorites.map((name) => name.login.uuid);
-
-  console.log(userNat.natData);
 
   useEffect(() => {
     filterByCountry(users, userNat.natData);

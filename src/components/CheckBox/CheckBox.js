@@ -17,7 +17,6 @@ const CheckBox = ({ isChecked, onChange, label, value }) => {
   const handleChange = () => {
     // check if the value of the checkbox is equal to nat in users, if true set the nat in the redux
     users.map((userNat) => {
-      console.log(userNat);
       if (value === userNat.nat) {
         dispatch(
           getNat({
