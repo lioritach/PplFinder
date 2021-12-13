@@ -14,19 +14,20 @@ const UserList = ({ users, isLoading }) => {
   const [filteredCountries, setfilteredCountries] = useState([]);
   const [click, setclick] = useState(false);
   const [show, setShow] = useState(false);
+  const [cnt, setCnt] = useState(false);
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("fav")) || []
   );
   const [favoriteMessage, setFavoriteMessage] = useState("");
   const userNat = useSelector(selectNat);
-  let changes = "initial";
+  const getitem = localStorage.getItem("nat");
 
   const countrys = Array.from(new Set(users.map((userCountry) => userCountry?.nat)));
   const usersFavorite = favorites.map((name) => name.login.uuid);
 
   useEffect(() => {
     filterByCountry(users, userNat.natData);
-  }, [userNat.natData === null ? changes : userNat.natData]);
+  }, [getitem]);
 
   useEffect(() => {
     localStorage.setItem("fav", JSON.stringify(favorites));
@@ -58,6 +59,7 @@ const UserList = ({ users, isLoading }) => {
   };
 
   const filterByCountry = (data, country) => {
+    setCnt(true);
     if (countrys.indexOf(country) !== -1) {
       let filteredData = data.filter((usr) => usr.nat === country);
       setfilteredCountries((prevState) => prevState.concat(filteredData));
