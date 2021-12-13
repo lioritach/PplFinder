@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const Slice = createSlice({
   name: "nat",
   initialState: {
-    data: "",
+    data: "initial",
   },
   reducers: {
     getNat: (state, action) => {

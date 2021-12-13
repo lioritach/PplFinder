@@ -19,13 +19,14 @@ const UserList = ({ users, isLoading }) => {
   );
   const [favoriteMessage, setFavoriteMessage] = useState("");
   const userNat = useSelector(selectNat);
+  let changes = "initial";
 
   const countrys = Array.from(new Set(users.map((userCountry) => userCountry?.nat)));
   const usersFavorite = favorites.map((name) => name.login.uuid);
 
   useEffect(() => {
     filterByCountry(users, userNat.natData);
-  }, [userNat.natData]);
+  }, [userNat.natData === null ? changes : userNat.natData]);
 
   useEffect(() => {
     localStorage.setItem("fav", JSON.stringify(favorites));
