@@ -19,15 +19,18 @@ const UserList = ({ users, isLoading }) => {
     JSON.parse(localStorage.getItem("fav")) || []
   );
   const [favoriteMessage, setFavoriteMessage] = useState("");
-  const userNat = useSelector(selectNat);
+  const userNat =
+    useSelector(selectNat) === null ? "initialValue" : useSelector(selectNat);
   const getitem = localStorage.getItem("nat");
 
   const countrys = Array.from(new Set(users.map((userCountry) => userCountry?.nat)));
   const usersFavorite = favorites.map((name) => name.login.uuid);
 
   useEffect(() => {
-    filterByCountry(users, getitem);
-  }, [getitem]);
+    filterByCountry(users, userNat.natData);
+  }, [userNat.natData]);
+
+  console.log(userNat.natData);
 
   useEffect(() => {
     localStorage.setItem("fav", JSON.stringify(favorites));
@@ -85,7 +88,7 @@ const UserList = ({ users, isLoading }) => {
       </S.FavoriteMessage>
       <S.List>
         {/* show all users when checkbox's is unchecked */}
-        {a === "l"
+        {userNat.natData === "initialValue"
           ? users.map((user, index) => {
               return (
                 <S.User
