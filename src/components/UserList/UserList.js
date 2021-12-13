@@ -33,6 +33,10 @@ const UserList = ({ users, isLoading }) => {
     localStorage.setItem("fav", JSON.stringify(favorites));
   }, [favorites]);
 
+  useEffect(() => {
+    dispatch(getNat({ natData: "initialValue" }));
+  }, []);
+
   const handleMouseEnter = (index) => {
     setHoveredUserId(index);
   };
