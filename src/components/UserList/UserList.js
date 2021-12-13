@@ -83,7 +83,7 @@ const UserList = ({ users, isLoading }) => {
       </S.FavoriteMessage>
       <S.List>
         {/* show all users when checkbox's is unchecked */}
-        {userNat.natData == ""
+        {userNat.natData.length == 0
           ? users.map((user, index) => {
               return (
                 <S.User
