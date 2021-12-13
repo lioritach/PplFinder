@@ -122,7 +122,6 @@ const UserList = ({ users, isLoading }) => {
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {user.nat}
                   <S.UserPicture src={user?.picture.large} alt="" />
                   <S.UserInfo>
                     <Text size="22px" bold>
