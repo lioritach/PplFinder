@@ -37,6 +37,8 @@ const UserList = ({ users, isLoading }) => {
     setHoveredUserId(index);
   };
 
+  console.log(userNat.natData === "initialValue");
+
   const handleMouseLeave = () => {
     setHoveredUserId();
   };
@@ -83,7 +85,7 @@ const UserList = ({ users, isLoading }) => {
       </S.FavoriteMessage>
       <S.List>
         {/* show all users when checkbox's is unchecked */}
-        {userNat.natData.length == 0
+        {userNat.natData === "initialValue"
           ? users.map((user, index) => {
               return (
                 <S.User

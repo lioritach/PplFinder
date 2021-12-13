@@ -13,7 +13,7 @@ const CheckBox = ({ isChecked, onChange, label, value }) => {
   const userNats = useSelector(selectNat);
 
   useEffect(() => {
-    dispatch(getNat({ natData: [] }));
+    dispatch(getNat({ natData: "initialValue" }));
   }, [value]);
 
   const handleChange = () => {
