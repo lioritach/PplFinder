@@ -14,14 +14,12 @@ const UserList = ({ users, isLoading }) => {
   const [filteredCountries, setfilteredCountries] = useState([]);
   const [click, setclick] = useState(false);
   const [show, setShow] = useState(false);
-  const [cnt, setCnt] = useState(false);
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("fav")) || []
   );
   const [favoriteMessage, setFavoriteMessage] = useState("");
   const userNat =
     useSelector(selectNat) === null ? "initialValue" : useSelector(selectNat);
-  const getitem = localStorage.getItem("nat");
 
   const countrys = Array.from(new Set(users.map((userCountry) => userCountry?.nat)));
   const usersFavorite = favorites.map((name) => name.login.uuid);
@@ -30,13 +28,9 @@ const UserList = ({ users, isLoading }) => {
     filterByCountry(users, userNat.natData);
   }, [userNat.natData]);
 
-  console.log(userNat.natData);
-
   useEffect(() => {
     localStorage.setItem("fav", JSON.stringify(favorites));
   }, [favorites]);
-
-  let a = "l";
 
   const handleMouseEnter = (index) => {
     setHoveredUserId(index);
@@ -64,7 +58,6 @@ const UserList = ({ users, isLoading }) => {
   };
 
   const filterByCountry = (data, country) => {
-    setCnt(true);
     if (countrys.indexOf(country) !== -1) {
       let filteredData = data.filter((usr) => usr.nat === country);
       setfilteredCountries((prevState) => prevState.concat(filteredData));

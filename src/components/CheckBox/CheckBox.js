@@ -3,14 +3,12 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import * as S from "./style";
 import { usePeopleFetch } from "hooks";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getNat } from "redux/features/Slice";
-import { selectNat } from "redux/features/Slice";
 
 const CheckBox = ({ isChecked, onChange, label, value }) => {
   const { users } = usePeopleFetch();
   const dispatch = useDispatch();
-  const userNats = useSelector(selectNat);
 
   useEffect(() => {
     dispatch(getNat({ natData: "initialValue" }));
@@ -18,7 +16,6 @@ const CheckBox = ({ isChecked, onChange, label, value }) => {
 
   const handleChange = () => {
     localStorage.setItem("nat", JSON.stringify(value));
-
     // check if the value of the checkbox is equal to nat in users, if true set the nat in the redux
     users.map((userNat) => {
       if (value === userNat.nat) {
